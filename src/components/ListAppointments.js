@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { FaRegFlag } from 'react-icons/fa';
+import { FaTimes } from 'react-icons/fa';
 import Moment from 'react-moment';
 
 class ListAppointments extends Component {
@@ -9,11 +9,14 @@ class ListAppointments extends Component {
         <div className="appointment-list item-list mb-3">
           {this.props.appointments.map(item => (
           <div className="pet-item col media py-3" key={item.aptId}>
-          <div className="mr-3">
-            <button className="pet-delete btn btn-sm btn-danger">
-              <FaRegFlag />
-            </button>
-          </div>
+            <div className="mr-3">
+              <button
+                className="pet-delete btn btn-sm btn-danger"
+                onClick={() => this.props.deleteAppointment(item)}
+              >
+                <FaTimes />
+              </button>
+            </div>
 
           <div className="pet-info media-body">
             <div className="pet-head d-flex">
@@ -22,7 +25,7 @@ class ListAppointments extends Component {
                 <Moment
                   date={item.aptDate}
                   parse="YYYY-MM-dd hh:mm"
-                  format = "MMM-D h:mma"
+                  format = "MMM-D-YYYY h:mma"
                 />
               </span>
             </div>
