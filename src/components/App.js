@@ -21,7 +21,9 @@ class App extends Component {
     this.deleteAppointment = this.deleteAppointment.bind(this);
     this.toggleForm = this.toggleForm.bind(this);
     this.addAppointment = this.addAppointment.bind(this);
-  }
+  //   this.orderBy = this.orderBy.bind(this);
+  //   this.orderDir = this.orderDir.bind(this);
+   }
 
   toggleForm() {
     this.setState({
@@ -95,7 +97,10 @@ class App extends Component {
                   formDisplay= {this.state.formDisplay}
                   toggleForm  = {this.toggleForm}
                   addAppointment = {this.addAppointment} />
-                <SearchAppointments />
+                <SearchAppointments 
+                  orderBy = {this.state.orderBy}
+                  orderDir = {this.state.orderDir}
+                />
                 <ListAppointments 
                   appointments={filteredApts}
                   deleteAppointment={this.deleteAppointment} />              
